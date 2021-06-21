@@ -28,7 +28,7 @@ program fhash_test
   if (int_ptr_kind() == 8) numKeys = numKeys * 2
 #endif
   call cpu_time(start)
-  call benchmark(2, numKeys)
+  call benchmark(66, numKeys)
   call cpu_time(finish)
   print '("Time finish = ", G0.3," seconds.")', finish - start
 
