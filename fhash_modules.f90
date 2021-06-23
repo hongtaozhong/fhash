@@ -8,6 +8,10 @@ module ints_module
     integer, allocatable :: ints(:)
   end type
 
+  type reals_type
+    real(8), allocatable :: reals(:)
+  end type
+
   interface hash_value
     module procedure hash_value_ints
   end interface
@@ -69,9 +73,9 @@ end module ints_module
 ! Define the macros needed by fhash and include fhash.f90
 #define KEY_USE use ints_module
 #define KEY_TYPE type(ints_type)
-#define VALUE_USE use, intrinsic :: iso_fortran_env
-#define VALUE_TYPE real(8)
-#define VALUE_TYPE_INIT 0.0
+#define VALUE_USE  use ints_module
+#define VALUE_TYPE type(reals_type)
+!#define VALUE_TYPE_INIT 0.0
 #define SHORTNAME ints_double
 #include "fhash.f90"
 
